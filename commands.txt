@@ -1,0 +1,22 @@
+//Deploy Script
+forge script script/Deployment.sol:DeploymentScript --rpc-url $ANVIL_RPC_URL --broadcast -vvvv
+
+//Send
+cast send --private-key $PRIVATE_KEY_2 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9 "registerStudentToken(address)" 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+
+//Balance
+cast call 0xa513E6E4b8f2a923D98304ec87F64353C4D5C853 "balanceOf(address)" 0xa513E6E4b8f2a923D98304ec87F64353C4D5C853
+
+//Approve Admin
+cast send --private-key $PRIVATE_KEY_2 StudentContract "approveAdmin(address, uint256)" EvaluatorContract 10000000
+
+//Ex_2
+cast send --private-key $PRIVATE_KEY_2 0x0165878A594ca255338adfa4d48449f69242Eb8F "ex2_mintStudentToken()"
+
+//Give Tokens
+cast send --private-key $PRIVATE_KEY_2 0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6 "giveTokens(address, uint256)" 0xa513E6E4b8f2a923D98304ec87F64353C4D5C853 20000000
+
+//Ex_3
+
+//Ex_4
+cast send --private-key $PRIVATE_KEY_2 0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6 "ex4_checkRewardTokenBalance()"
