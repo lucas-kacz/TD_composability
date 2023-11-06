@@ -5,6 +5,8 @@ import {Script} from "forge-std/Script.sol";
 import {Evaluator} from "../src/EvaluatorToken.sol";
 import {RewardToken} from "../src/RewardToken.sol";
 import {MyERC20} from "../src/MyERC20.sol";
+import {MyERC721} from "../src/MyERC721.sol";
+import {MySolution} from "../src/MySolution.sol";
 
 contract DeploymentScript is Script {
     function run() external {
@@ -21,6 +23,9 @@ contract DeploymentScript is Script {
         address quoterAddress = 0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6;
 
         MyERC20 myErc20 = new MyERC20(evaluatorAddress, rewardAddress, factoryAddress, routerAddress, quoterAddress);
+        MyERC721 myErc721 = new MyERC721(evaluatorAddress);
+
+        MySolution mysolution = new MySolution(evaluatorAddress, rewardAddress, address(myErc20), address(myErc721));
 
         vm.stopBroadcast();
     }

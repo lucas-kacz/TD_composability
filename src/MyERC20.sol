@@ -52,11 +52,11 @@ contract MyERC20 is IStudentToken, ERC20 {
         factory.createPool(address(this), 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 500);
     }
 
-	function SwapRewardToken() external{
+	function SwapRewardToken(address recipient, uint256 amountOut) external{
         address tokenIn = address(evaluator);
         address tokenOut = address(rewardToken);
 
-        uint256 amountOut = 10 ** 18 * 5;
+        // uint256 amountOut = 10 ** 18 * 5;
 
         address poolAddress = factory.getPool(tokenIn, tokenOut, 500);
 
@@ -71,7 +71,7 @@ contract MyERC20 is IStudentToken, ERC20 {
             tokenIn: tokenIn,
             tokenOut: tokenOut,
             fee: fee,
-            recipient: address(this),
+            recipient: msg.sender,
             deadline: block.timestamp + 120,
             amountOut: amountOut,
             amountInMaximum: amountInMaximum,
