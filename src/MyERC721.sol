@@ -17,6 +17,9 @@ contract MyERC721 is IStudentNft, ERC721{
     }
 
     function mint(uint256 tokenIdToMint) external {
+        //Check if the ERC721 can spend evaluator Tokens
+        //If not it will trigger the catch in ex8 making the evaluator approve
+        //this contract to transfer evaluator tokens
         uint256 approvedAmount = evaluator.allowance(msg.sender, address(this));
         require(approvedAmount > 0, "cannot mint nft without collateral");
 

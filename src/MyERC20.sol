@@ -56,15 +56,16 @@ contract MyERC20 is IStudentToken, ERC20 {
         address tokenIn = address(evaluator);
         address tokenOut = address(rewardToken);
 
-        // uint256 amountOut = 10 ** 18 * 5;
-
+        //Find the EvaluatorToken/RewardToken pool
         address poolAddress = factory.getPool(tokenIn, tokenOut, 500);
 
         IUniswapV3Pool pool = IUniswapV3Pool(poolAddress);
         uint24 fee = pool.fee();
 
         uint160 sqrtPriceLimitX96 = 0;
+        //Estimate the amount needed to perform the swap using the UniswapV3 Quoter
         uint256 amountInEstimate = quoter.quoteExactOutputSingle(tokenIn, tokenOut, fee, amountOut, sqrtPriceLimitX96);
+        //Set the maximum to 10% above the estimate
         uint256 amountInMaximum = amountInEstimate * 110 / 100;
 
         ISwapRouter.ExactOutputSingleParams memory params = ISwapRouter.ExactOutputSingleParams({
@@ -78,6 +79,7 @@ contract MyERC20 is IStudentToken, ERC20 {
             sqrtPriceLimitX96: sqrtPriceLimitX96
         });
 
+        //Allow router to perform the swap
         evaluator.approve(address(router), amountInMaximum);
 
         router.exactOutputSingle(params);

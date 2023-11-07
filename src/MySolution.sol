@@ -2,8 +2,6 @@
 import {IEvaluator} from "./IEvaluator.sol";
 import {RewardToken} from "./RewardToken.sol";
 
-import {IQuoter} from "../node_modules/@uniswap/v3-periphery/contracts/interfaces/IQuoter.sol";
-
 import {MyERC20} from "./MyERC20.sol";
 import {MyERC721} from "./MyERC721.sol";
 
@@ -28,8 +26,6 @@ contract MySolution {
 
         LucasToken = MyERC20(_myTokenAddress);
         LucasNFT = MyERC721(_myErc721address);
-
-        // quoter = IQuoter(_quoterAddress);
     }
 
 
@@ -58,12 +54,14 @@ contract MySolution {
     }
 
     function ex3() public{
+        //Transfer the amount needed by the ex3_mintEvaluatorToken() to pass the exercise
         LucasToken.approveAdmin(address(evaluator), 20000000);
         LucasToken.giveTokens(address(evaluator), 20000000);
         evaluator.ex3_mintEvaluatorToken();
     }
 
     function ex4_prep() public{
+        //Allow my ERC20 to use the Evaluator tokens to perform a swap
         evaluator.approve(address(LucasToken), 8000000000000000000);
         evaluator.transfer(address(LucasToken), 8000000000000000000);
         LucasToken.SwapRewardToken(msg.sender, 5000000000000000000);
@@ -74,12 +72,14 @@ contract MySolution {
     }
 
     function ex5_prep() public{
+        //Allow my ERC20 to use the Evaluator tokens to perform a swap
         evaluator.approve(address(LucasToken), 14000000000000000000);
         evaluator.transfer(address(LucasToken), 14000000000000000000);
         LucasToken.SwapRewardToken(msg.sender, 10000000000000000000);
     }
 
     function ex5() public{
+        //Allow the evaluator to transfer 10*10**18 tokens swaped previusly
         rewardToken.approve(address(evaluator), 10000000000000000000);
         evaluator.ex5_checkRewardTokenBalance();
     }
