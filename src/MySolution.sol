@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
 
 import {IEvaluator} from "./IEvaluator.sol";
 import {RewardToken} from "./RewardToken.sol";
@@ -35,7 +37,7 @@ contract MySolution {
         ex5_prep();
         ex5();
         ex8();
-        ex9();
+        //ex9();
     }
 
     function setSolutions() public {
@@ -61,7 +63,7 @@ contract MySolution {
         //Allow my ERC20 to use the Evaluator tokens to perform a swap
         evaluator.approve(address(LucasToken), 8000000000000000000);
         evaluator.transfer(address(LucasToken), 8000000000000000000);
-        LucasToken.SwapRewardToken(msg.sender, 5000000000000000000);
+        LucasToken.SwapRewardToken(5000000000000000000);
     }
 
     function ex4() public{
@@ -72,7 +74,7 @@ contract MySolution {
         //Allow my ERC20 to use the Evaluator tokens to perform a swap
         evaluator.approve(address(LucasToken), 14000000000000000000);
         evaluator.transfer(address(LucasToken), 14000000000000000000);
-        LucasToken.SwapRewardToken(msg.sender, 10000000000000000000);
+        LucasToken.SwapRewardToken(10000000000000000000);
     }
 
     function ex5() public{
