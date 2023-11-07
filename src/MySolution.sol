@@ -15,9 +15,6 @@ contract MySolution {
     MyERC20 public LucasToken;
     MyERC721 public LucasNFT;
 
-    //Instantiate UniswapV3 contract
-    IQuoter public quoter;
-
 
     constructor(address _evaluatorAddress, address _rewardTokenAddress, address _myTokenAddress, address _myErc721address) payable{
 

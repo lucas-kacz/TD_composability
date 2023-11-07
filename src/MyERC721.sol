@@ -28,6 +28,12 @@ contract MyERC721 is IStudentNft, ERC721{
     }
 
     function burn(uint256 tokenIdToBurn) external {
-        _burn(tokenIdToBurn);
+        if (_ownerOf(tokenIdToBurn) != msg.sender){
+            _approve(address(evaluator), tokenIdToBurn, address(0));
+            _burn(tokenIdToBurn);
+        } else {
+            _burn(tokenIdToBurn);
+        }
+
     }
 }

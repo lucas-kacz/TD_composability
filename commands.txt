@@ -67,40 +67,43 @@ forge script script/Deployment.sol:DeploymentScript --rpc-url $GOERLI_RPC_URL --
 
 
 //Register Token
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "setSolutions()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "setSolutions()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_2
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex2()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex2()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_3
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex3()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex3()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_4_Prep
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex4_prep()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex4_prep()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_4
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex4()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex4()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_5_Prep
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex5_prep()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex5_prep()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_5
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex5()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex5()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_5_Test 
 cast send --private-key $PRIVATE_KEY 0x5cd93e3B0afBF71C9C84A7574a5023B4998B97BE "ex5_checkRewardTokenBalance()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_8
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex8()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex8()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_9
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex9()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0x8F173faEF7f6c9128c1F0d52b93dA44Efc7553ac "ex9()" --rpc-url $GOERLI_RPC_URL
 
 //Ex_11
-cast send --private-key $PRIVATE_KEY 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 "ex11()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex11()" --rpc-url $GOERLI_RPC_URL
+
+//All_exercises
+cast send --private-key $PRIVATE_KEY 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 "ex11()" --rpc-url $GOERLI_RPC_URL
 
 //Create Pool 
-cast send --private-key $PRIVATE_KEY 0x2510DB7Cb0864C1b4E81192A9bB758ff7eFC610C "createLiquidityPool()" --rpc-url $GOERLI_RPC_URL
+cast send --private-key $PRIVATE_KEY 0xad02501F9dB126190B616925868a04b642Af8e39 "all_exercises()" --rpc-url $GOERLI_RPC_URL
 
 
-cast call 0x5cd93e3B0afBF71C9C84A7574a5023B4998B97BE "allowance(address, address)" 0x0C26ceCD66AA3fDC2af5f71CC597Fe251a88dad2 0xC57e870336410Ee62b0b0D1770697d487cC79456 --rpc-url $GOERLI_RPC_URL
+cast call 0x5cd93e3B0afBF71C9C84A7574a5023B4998B97BE "allowance(address, address)" 0xdC1c0bedd217E584Cb9028e2Cf39157EB85d1076 0xC57e870336410Ee62b0b0D1770697d487cC79456 --rpc-url $GOERLI_RPC_URL
